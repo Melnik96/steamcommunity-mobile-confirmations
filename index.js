@@ -8,9 +8,10 @@ var SteamcommunityMobileConfirmations = function (options)
 	this.steamid         = options.steamid;
 	this.identity_secret = options.identity_secret;
 	this.device_id       = options.device_id;
+	this.proxy       = options.proxy;
 
 	this._j = Request.jar();
-	this._request = Request.defaults({ jar: this._j });
+	this._request = Request.defaults({ jar: this._j, proxy: this.proxy });
 
 	options.webCookie.forEach((function(name)
 	{
